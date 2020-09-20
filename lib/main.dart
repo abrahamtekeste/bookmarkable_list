@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//A widget that lists random letters and holds save status of favorite letters
 class RandomWords extends StatefulWidget {
   @override
   _RandomWordsState createState() => _RandomWordsState();
@@ -32,6 +33,7 @@ class _RandomWordsState extends State<RandomWords> {
   final saved = Set<WordPair>();
 
   void _openSaved() {
+    //Opening bookmarked screen
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
@@ -52,7 +54,7 @@ class _RandomWordsState extends State<RandomWords> {
 
           return Scaffold(
             appBar: AppBar(
-              title: Text('Saved Suggestions'),
+              title: Text('Saved letters'),
             ),
             body: ListView(children: divided),
           );
@@ -68,7 +70,9 @@ class _RandomWordsState extends State<RandomWords> {
         title: Text('Bookmarkable list'),
         actions: [
           IconButton(
-            icon: Icon(Icons.list),
+            icon: Icon(
+              Icons.list,
+            ),
             onPressed: _openSaved,
           ),
         ],
